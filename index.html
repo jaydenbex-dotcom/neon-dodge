@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport"
+      content="width=device-width,initial-scale=1">
+      <title>NEON DODGE</title>
+      <style>
+        body{background:#080818;color:#0ff;text-align:center;font-fam
+             ily:Arial}
+        canvas{background:#111;border:2px solid
+               cyan;width:90%max-width:400px}
+        button{padding:12px;background:cyan;border;0;margin:10px}
+        </style>
+  </head>
+  <body>
+    <h1>NEON DODGE</h1>
+    <h3>Score: <span id="score">0</span></h3>
+    <canvas id="game" width="350" height="450"></canvas><br>
+    <button onclick="player.x-=25">LEFT</button>
+    <button onclick="player.x+=25">RIGHT</button>
+    <script>
+      const
+        c=document.getElementById("game"),ctx=c.getContext("2d);
+                                                           let
+                                                           player={x:160,y:400},enemy={x:100,y:0},score=0,over=false;
+      function draw(){
+        ctx.clearRect(0,0,350,450);
+        ctx.fillStyle="cyan";ctx.fillRect(player.x,player.y,30,30);
+        ctx.fillStyle="red";ctx.fillRect(enemy.x,enemy.y,30,30);
+        enemy.y+=4;
+        if(enemy.y>450){enemy.y=0;enemy.x=Math.random()*320;score+
+          +;document.getElementById("score").textContent=score}
+        if(player.x<0)player.x=0;if(player.x>320)player.x=320;
+        if(!over)requestAnimationFrame(draw);
+        else ctx.fillText("GAME OVER!",120,120);
+      }
+      function restart()
+      {player.x=160;enemy.y=o;score=0;over=false;document.getElemen
+       tById("score").textContent=0;draw()}
+      draw();
+    </script>
+  </body>
+</html>
+     
+                                                           
+                                                           
